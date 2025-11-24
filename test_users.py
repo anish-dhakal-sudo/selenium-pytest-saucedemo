@@ -7,15 +7,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-@pytest.fixture
-def driver():
-    """Provides a fresh driver instance for each test."""
-    d = webdriver.Chrome(service=Service(executable_path="chromedriver.exe"))
-    """provide the driver instance for all tests"""
-    yield d
-    d.quit()
-
-
 @pytest.fixture(scope="session")
 def logged_in_driver():
     """Logs in once and provides a driver with an active session for all tests."""
