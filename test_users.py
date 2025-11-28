@@ -6,6 +6,11 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+@pytest.fixture
+def driver():
+    d = webdriver.Chrome()
+    yield d
+    d.quit()
 
 @pytest.fixture(scope="session")
 def logged_in_driver():
